@@ -7,15 +7,7 @@
 			<script>
 				var dimensions = {"width" : 1000, "height" :500, margins : {"left": 20, "right":20, "bottom": 20, "top":20} }
 					var canvas = d3.select("body").append("svg").attr("width",dimensions.width).attr("height", dimensions.height);
-					var rect = canvas.append("rect").attr("width",dimensions.width).attr("height",dimensions.height/2).attr("x",0).attr("y",dimensions.height/4).attr("fill","red");
-					var button = canvas.append("rect").attr("width",100).attr("height",50).attr("x",dimensions.width/2 - 50).attr("y",dimensions.height/2 - 25).attr("fill","blue").on("click", function(d,i){
-							canvas.append("rect").attr("width",50).attr("height",50).attr("x",Math.random()*dimensions.width).attr("y",Math.random()*dimensions.height).attr("fill","green")
-					});
-
-				d3.csv("http://cors.io/u?=https://docs.google.com/spreadsheets/d/1RP5fpg-10lg4d0RPkMp5kw-qHXzRUO3gvu4Jb1fSnHo/pub?gid=830015147&single=true&output=csv",function(data,i){
-					debugger;
-				})
 			</script>
-
+			<iframe src="https://docs.google.com/spreadsheets/d/1RP5fpg-10lg4d0RPkMp5kw-qHXzRUO3gvu4Jb1fSnHo/pubhtml?widget=true&amp;headers=false"></iframe>
 	</body>
 </html>
