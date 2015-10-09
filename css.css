@@ -1,0 +1,14 @@
+.canvas {
+	height:5000;
+	width:1000;
+}
+
+.MainSquare {
+	width: 99%;
+	position: fixed;
+	height: 50%;
+	border-color: red;
+	border-width: 10;
+	background-color: black;
+	top: 200;
+}
