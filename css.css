@@ -1,14 +1,17 @@
-.canvas {
+.can .canvas{
 	height:5000;
-	width:1000;
+	width:1569;
 }
-
+@font-face { font-family: Gen; src: url('GenBasI.ttf'); } 
+* {
+	font-family: Gen;
+}
 .MainSquare {
 	width: 99%;
 	position: fixed;
 	height: 50%;
 	border-color: red;
 	border-width: 10;
-	background-color: black;
+	background-color: Black;
 	top: 200;
 }
