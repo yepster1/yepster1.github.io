@@ -3,7 +3,7 @@ var width = $(window).width();
 $(function(){
 	$('<h1 style="color:white; text-align: center;">Cary Small</h1>').appendTo('.MainSquare');
 	$('<h3 style="color:white; text-align: center;">Proffessional, Motivated, Caring</h3>').appendTo('.MainSquare');
-	$('<a href="https://github.com/yepster1" style="color:white; text-align: center;">Github Account</h3>').appendTo('.MainSquare');
+	$('<a href="https://github.com/yepster1" style="color:white; text-align: awesome;">Github Account</h3>').appendTo('.MainSquare');
 	var sig = Math.random()*255;
 	var significant = Math.floor(sig);
 	append();
