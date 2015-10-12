@@ -30,9 +30,6 @@ function append(){
 	}
 
 $(function(){
-	$('<h1 style="color:white; text-align: center;">Cary Small</h1>').appendTo('.MainSquare');
-	$('<h3 style="color:white; text-align: center;">Professional, Motivated, Awesome</h3>').appendTo('.MainSquare');
-	$('<a href="https://github.com/yepster1" style="color:white; text-align: center;">Github Account</h3>').appendTo('.MainSquare');
 	append();
 });
 
