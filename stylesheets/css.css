@@ -1,10 +1,10 @@
-.can .canvas{
-	height:5000;
-	width:1569;
-}
 @font-face { font-family: Gen; src: url('GenBasI.ttf'); } 
 * {
 	font-family: Gen;
+}
+.can svg.canvas {
+	width: 99%;
+	height: 99%;
 }
 .MainSquare {
 	width: 99%;
