@@ -49,9 +49,26 @@ function rippleEffect(x,y){
 		currentSquare(x,y,k,k,'+');
 		currentSquare(x,y,k-2,k-2,'-');
 	}*/
-//	for(var i = 0; i < 15; i++){
-		currentCircle(x,y,3,'+',2);
-//	}
+	var max = 30;
+	var newcounter = 0;
+	var counter = 0;
+	for(var i = 0; i < max; i++){
+		setTimeout(function(){
+				if(newcounter < (max)){
+					currentCircle(x,y,newcounter,'+',10);
+				}
+				if(newcounter >=5){
+					currentCircle(x,y,(newcounter-5),'-',10);
+				}
+				newcounter++;
+			}, counter++*60);
+	}
+
+	newcounter = 0;
+	counter = 0;
+}
+function makeripple(x,y){
+
 }
 function calculateDistance(x,y,cx,cy,radius,Limit){
 	var distance = Math.sqrt(Math.pow(y-cy,2) + Math.pow(x-cx,2)); //Distance formula
@@ -68,14 +85,15 @@ function currentCircle(x0,y0,radius,sign,amount){
 	var y = 0;
 	var decisionOver2 = 1-x;
 	while(x >= y){
-		rectangles[x+x0][y+y0].attr("fill",colorChanger(x+x0,x+y0,sign,10));
-		rectangles[y+x0][x+y0].attr("fill",colorChanger(y+x0,x+x0,sign,10));
-		rectangles[-x+x0][y+y0].attr("fill",colorChanger(-x+x0,x+y0,sign,10));
-		rectangles[-y+x0][x+y0].attr("fill",colorChanger(-y+x0,x+x0,sign,10));
-		rectangles[-x+x0][y+y0].attr("fill",colorChanger(-x+x0,-x+y0,sign,10));
-		rectangles[-y+x0][x+y0].attr("fill",colorChanger(-y+x0,-x+x0,sign,10));
-		rectangles[x+x0][y+y0].attr("fill",colorChanger(x+x0,-x+y0,sign,10));
-		rectangles[y+x0][x+y0].attr("fill",colorChanger(y+x0,-x+x0,sign,10));
+		rectangles[y0+y][x0+x].attr("fill",colorChanger(y0+y,x0+x,sign,amount));
+		rectangles[y0-y][x0+x].attr("fill",colorChanger(y0-y,x0+x,sign,amount));
+		rectangles[y0-y][x0-x].attr("fill",colorChanger(y0-y,x0-x,sign,amount));
+		rectangles[y0+y][x0-x].attr("fill",colorChanger(y0+y,x0-x,sign,amount));
+
+		rectangles[y0+x][x0-y].attr("fill",colorChanger(y0+x,x0-y,sign,amount));
+		rectangles[y0+x][x0+y].attr("fill",colorChanger(y0+x,x0+y,sign,amount));
+		rectangles[y0-x][x0+y].attr("fill",colorChanger(y0-x,x0+y,sign,amount));
+		rectangles[y0-x][x0-y].attr("fill",colorChanger(y0-x,x0-y,sign,amount));
 	y++;
 	if(decisionOver2 <0){
 		decisionOver2 += 2 * y + 1;
