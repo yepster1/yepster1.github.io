@@ -34,21 +34,10 @@ function colorChanger(x,y,sign,amount){
 
 	var newColor = "rgb("+k+","+l+","+Math.floor((l+k)/2)+")";	return newColor;;
 }
-function currentSquare(x,y,width,height,sign){
-	for (var i = x-width; i <= x+width; ++i) {
-		rectangles[y-height-1][i].attr("fill",colorChanger(y-height-1,i,sign,10));
-		rectangles[y+height][i].attr("fill",colorChanger(y+height,i,sign,10));	
-	};
-	for (var i = y-height; i < y+height; ++i) {
-		rectangles[i][x-width].attr("fill",colorChanger(i,x-width,sign,10));
-		rectangles[i][x+width].attr("fill",colorChanger(i,x+width,sign,10));
-	};
-}			
+function change(x,u,c,s,a){
+
+}		
 function rippleEffect(x,y){
-	/*for(var k = 0; k < 10; ++k){
-		currentSquare(x,y,k,k,'+');
-		currentSquare(x,y,k-2,k-2,'-');
-	}*/
 	var max = 120;
 	var newcounter = 0;
 	var counter = 0;
@@ -56,12 +45,44 @@ function rippleEffect(x,y){
 		setTimeout(function(){
 				if(newcounter < (max-5)){
 					try{
-						currentCircle(x,y,newcounter,'+',10);
+						currentCircle(x,y,newcounter,'+',2);
+					}catch(err){};
+					try{
+						currentCircle(x,y,newcounter-1,'+',2);
+					}catch(err){};
+					try{
+						currentCircle(x,y,newcounter-2,'+',2);
+					}catch(err){};
+					try{
+						currentCircle(x,y,newcounter-3,'+',2);
+					}catch(err){};
+					try{
+						currentCircle(x,y,newcounter-4,'+',2);
 					}catch(err){};
 				}
 				if(newcounter >=5){
 					try{
-						currentCircle(x,y,(newcounter-5),'-',10);
+						currentCircle(x,y,(newcounter-5),'-',2);
+					}catch(err){};
+				}
+				if(newcounter >=7){
+					try{
+						currentCircle(x,y,(newcounter-7),'-',2);
+					}catch(err){};
+				}
+				if(newcounter >=9){
+					try{
+						currentCircle(x,y,(newcounter-9),'-',2);
+					}catch(err){};
+				}
+				if(newcounter >=11){
+					try{
+						currentCircle(x,y,(newcounter-11),'-',2);
+					}catch(err){};
+				}
+				if(newcounter >=13){
+					try{
+						currentCircle(x,y,(newcounter-13),'-',2);
 					}catch(err){};
 				}
 				newcounter++;
@@ -82,22 +103,26 @@ function calculateDistance(x,y,cx,cy,radius,Limit){
 	}
 	return cy;
 }
-
+function rectangleChanger(x,y,sign,amount){
+	try{
+		rectangles[x][y].attr("fill",colorChanger(x,y,sign,amount));
+	}catch(err){}
+}
 function currentCircle(x0,y0,radius,sign,amount){
 	//MidPoint_Circle_Algarithm
 	var x = radius;
 	var y = 0;
 	var decisionOver2 = 1-x;
 	while(x >= y){
-		rectangles[y0+y][x0+x].attr("fill",colorChanger(y0+y,x0+x,sign,amount));
-		rectangles[y0-y][x0+x].attr("fill",colorChanger(y0-y,x0+x,sign,amount));
-		rectangles[y0-y][x0-x].attr("fill",colorChanger(y0-y,x0-x,sign,amount));
-		rectangles[y0+y][x0-x].attr("fill",colorChanger(y0+y,x0-x,sign,amount));
-
-		rectangles[y0+x][x0-y].attr("fill",colorChanger(y0+x,x0-y,sign,amount));
-		rectangles[y0+x][x0+y].attr("fill",colorChanger(y0+x,x0+y,sign,amount));
-		rectangles[y0-x][x0+y].attr("fill",colorChanger(y0-x,x0+y,sign,amount));
-		rectangles[y0-x][x0-y].attr("fill",colorChanger(y0-x,x0-y,sign,amount));
+		rectangleChanger(y0+y,x0+x,sign,amount);
+		rectangleChanger(y0+y,x0+x,sign,amount);
+		rectangleChanger(y0-y,x0+x,sign,amount);
+		rectangleChanger(y0-y,x0-x,sign,amount);
+		rectangleChanger(y0+y,x0-x,sign,amount);
+		rectangleChanger(y0+x,x0-y,sign,amount);
+		rectangleChanger(y0+x,x0+y,sign,amount);
+		rectangleChanger(y0-x,x0+y,sign,amount);
+		rectangleChanger(y0-x,x0-y,sign,amount);
 	y++;
 	if(decisionOver2 <0){
 		decisionOver2 += 2 * y + 1;
@@ -107,8 +132,8 @@ function currentCircle(x0,y0,radius,sign,amount){
 	}
 	}
 } 
-
-var squarerectangles = {width: 5, height: 5};
+var r = window.prompt("please enter indivudual width, smaller = better quality but more graphically intensive(between 5-10 for normal power computers)", 10);
+var squarerectangles = {width: parseInt(r),height: parseInt(r)};
 var x = 0;
 var y = 0;
 for (var i = 0; i < width; i = i + squarerectangles.width){
