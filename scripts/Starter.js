@@ -49,16 +49,20 @@ function rippleEffect(x,y){
 		currentSquare(x,y,k,k,'+');
 		currentSquare(x,y,k-2,k-2,'-');
 	}*/
-	var max = 30;
+	var max = 120;
 	var newcounter = 0;
 	var counter = 0;
 	for(var i = 0; i < max; i++){
 		setTimeout(function(){
-				if(newcounter < (max)){
-					currentCircle(x,y,newcounter,'+',10);
+				if(newcounter < (max-5)){
+					try{
+						currentCircle(x,y,newcounter,'+',10);
+					}catch(err){};
 				}
 				if(newcounter >=5){
-					currentCircle(x,y,(newcounter-5),'-',10);
+					try{
+						currentCircle(x,y,(newcounter-5),'-',10);
+					}catch(err){};
 				}
 				newcounter++;
 			}, counter++*60);
@@ -104,7 +108,7 @@ function currentCircle(x0,y0,radius,sign,amount){
 	}
 } 
 
-var squarerectangles = {width: 10, height: 10};
+var squarerectangles = {width: 5, height: 5};
 var x = 0;
 var y = 0;
 for (var i = 0; i < width; i = i + squarerectangles.width){
