@@ -9,6 +9,8 @@ $( document ).ready(function() {
 			.attr("height",height);
 	var rectangles = [];
 	//I know you can do it using a color scale but I think this way you get more control
+	var red = "rgb(255,0,0)";
+	var yellow = "rgb(0,255,0)";
 	var colorH = d3.scale.linear().domain([0,height]).range([0,255]);
 	var colorW = d3.scale.linear().domain([0,width]).range([0,255]);
 	var colorB = d3.scale.linear().domain([red,yellow]).range([255,0]);
