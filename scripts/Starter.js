@@ -46,7 +46,7 @@ $( document ).ready(function() {
 		var counter = 0;
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
-						change(x,y,newcounter,'+',2);
+						change(x,y,newcounter++,'+',2);
 				}, counter++*60);
 		}
 	
