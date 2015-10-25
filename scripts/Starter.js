@@ -48,7 +48,7 @@ $( document ).ready(function() {
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
 						change(x,y,newcounter++,'+',2);
-				}, counter++*60-Slowdowneffect++);
+				}, counter++*60-Slowdowneffect++*10);
 		}
 	
 		newcounter = 0;
