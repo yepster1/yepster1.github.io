@@ -35,7 +35,9 @@ function colorChanger(x,y,sign,amount){
 	var newColor = "rgb("+k+","+l+","+Math.floor((l+k)/2)+")";	return newColor;;
 }
 function change(x,u,c,s,a){
-
+	try{
+		currentCircle(x,u,c,s,a);
+	}cathc(err){};
 }		
 function rippleEffect(x,y){
 	var max = 120;
@@ -44,46 +46,25 @@ function rippleEffect(x,y){
 	for(var i = 0; i < max; i++){
 		setTimeout(function(){
 				if(newcounter < (max-5)){
-					try{
-						currentCircle(x,y,newcounter,'+',2);
-					}catch(err){};
-					try{
-						currentCircle(x,y,newcounter-1,'+',2);
-					}catch(err){};
-					try{
-						currentCircle(x,y,newcounter-2,'+',2);
-					}catch(err){};
-					try{
-						currentCircle(x,y,newcounter-3,'+',2);
-					}catch(err){};
-					try{
-						currentCircle(x,y,newcounter-4,'+',2);
-					}catch(err){};
+					change(x,y,newcounter,'+',2);
+					currentCircle(x,y,newcounter-1,'+',2);
+					currentCircle(x,y,newcounter-2,'+',2);
+					currentCircle(x,y,newcounter-3,'+',2);
+					currentCircle(x,y,newcounter-4,'+',2);
 				}
 				if(newcounter >=5){
-					try{
-						currentCircle(x,y,(newcounter-5),'-',2);
-					}catch(err){};
-				}
+					currentCircle(x,y,(newcounter-5),'-',2);
 				if(newcounter >=7){
-					try{
-						currentCircle(x,y,(newcounter-7),'-',2);
-					}catch(err){};
+					currentCircle(x,y,(newcounter-7),'-',2);
 				}
 				if(newcounter >=9){
-					try{
 						currentCircle(x,y,(newcounter-9),'-',2);
-					}catch(err){};
 				}
 				if(newcounter >=11){
-					try{
 						currentCircle(x,y,(newcounter-11),'-',2);
-					}catch(err){};
 				}
 				if(newcounter >=13){
-					try{
 						currentCircle(x,y,(newcounter-13),'-',2);
-					}catch(err){};
 				}
 				newcounter++;
 			}, counter++*60);
