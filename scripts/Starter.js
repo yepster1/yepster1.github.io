@@ -44,10 +44,11 @@ $( document ).ready(function() {
 		var max = 120;
 		var newcounter = 0;
 		var counter = 0;
+		var Slowdowneffect = 0;
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
 						change(x,y,newcounter++,'+',2);
-				}, counter++*60);
+				}, counter++*60-Slowdowneffect++);
 		}
 	
 		newcounter = 0;
