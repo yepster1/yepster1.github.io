@@ -54,6 +54,7 @@ function rippleEffect(x,y){
 				}
 				if(newcounter >=5){
 					currentCircle(x,y,(newcounter-5),'-',2);
+				}
 				if(newcounter >=7){
 					currentCircle(x,y,(newcounter-7),'-',2);
 				}
