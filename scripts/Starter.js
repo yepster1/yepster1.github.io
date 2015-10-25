@@ -37,7 +37,7 @@ function colorChanger(x,y,sign,amount){
 function change(x,u,c,s,a){
 	try{
 		currentCircle(x,u,c,s,a);
-	}cathc(err){};
+	}catch(err){};
 }		
 function rippleEffect(x,y){
 	var max = 120;
