@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	//I know you can do it using a color scale but I think this way you get more control
 	var colorH = d3.scale.linear().domain([0,height]).range([0,255]);
 	var colorW = d3.scale.linear().domain([0,width]).range([0,255]);
-	var colorB = d3.scale.linear().domain([0,(width+height)]).range([255,0]);
+	var colorB = d3.scale.linear().domain([0,510]).range([255,0]);
 	function toRGB (color){
 		color = color.replace("rgb(","");
 		color = color.replace(")","");
@@ -30,26 +30,31 @@ $( document ).ready(function() {
 			l = colors[1]+amount;
 		}else{
 			k = colors[0]-amount;
-			l = colors[1]-amount;	
+			l = colors[1]-amount;
 		}
 	
-		var newColor = "rgb("+k+","+l+","+"0"+")";	return newColor;;
+		var newColor = "rgb("+k+","+l+","+Math.round(colorB(l+k))+")";	return newColor;;
 	}
-	function change(x,u,c,s,a){
+	function change(x,u,c,s){
 		try{
-			currentCircle(x,u,c,s,a);
+			for (var i = 0; i < 5; i++){
+				currentCircle(x,u,c+i,s,i);
+			}
 		}catch(err){};
 	}		
 	function rippleEffect(x,y){
 		var max = 120;
 		var newcounter = 0;
 		var counter = 0;
+		var wider = 0;
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
-						change(x,y,newcounter++,'+',2);
-				}, counter++*60);
+						change(x,y,newcounter++,'+');
+						if(newcounter > 5){
+							change(x,y,newcounter-5,'-',4);
+						}
+				}, counter++*60 - wider++*5);
 		}
-	
 		newcounter = 0;
 		counter = 0;
 	}
@@ -94,7 +99,7 @@ $( document ).ready(function() {
 		for (var k = 0; k < height; k = k + squarerectangles.height){
 			row.push(d3.select(".canvas").append("circle")
 				.attr("fill",function(){
-					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+",0"+")";
+					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.round(colorB(Math.floor(colorW(i))+Math.floor(colorH(k))))+")";
 				})
 				.attr("cx",i)
 				.attr("cy",k)
