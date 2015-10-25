@@ -35,7 +35,7 @@ $( document ).ready(function() {
 			l = colors[1]-amount;	
 		}
 	
-		var newColor = "rgb("+k+","+l+","+"Math.floor(colorb(k+l))"+")";	return newColor;;
+		var newColor = "rgb("+k+","+l+","+"Math.floor(colorB(k+l))"+")";	return newColor;;
 	}
 	function change(x,u,c,s,a){
 		try{
@@ -97,7 +97,7 @@ $( document ).ready(function() {
 		for (var k = 0; k < height; k = k + squarerectangles.height){
 			row.push(d3.select(".canvas").append("circle")
 				.attr("fill",function(){
-					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.floor(colorb(k+i))+")";
+					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.floor(colorB(k+i))+")";
 				})
 				.attr("cx",i)
 				.attr("cy",k)
