@@ -78,14 +78,6 @@ $( document ).ready(function() {
 	function makeripple(x,y){
 	
 	}
-	function calculateDistance(x,y,cx,cy,radius,Limit){
-		var distance = Math.sqrt(Math.pow(y-cy,2) + Math.pow(x-cx,2)); //Distance formula
-		if(Limit > 100){return -1};
-		if(distance > radius){
-			return calculateDistance(x,y,cx,--cy,radius,++Limit); 
-		}
-		return cy;
-	}
 	function rectangleChanger(x,y,sign,amount){
 		try{
 			rectangles[x][y].attr("fill",colorChanger(x,y,sign,amount));
