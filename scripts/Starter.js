@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	//I know you can do it using a color scale but I think this way you get more control
 	var colorH = d3.scale.linear().domain([0,height]).range([0,255]);
 	var colorW = d3.scale.linear().domain([0,width]).range([0,255]);
-	var colorB = d3.scale.linear().domain([0,(width+height)]).range([255,0]);
+	var colorB = d3.scale.linear().domain([color.red,color.yellow]).range([255,0]);
 	function toRGB (color){
 		color = color.replace("rgb(","");
 		color = color.replace(")","");
