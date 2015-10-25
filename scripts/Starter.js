@@ -9,11 +9,9 @@ $( document ).ready(function() {
 			.attr("height",height);
 	var rectangles = [];
 	//I know you can do it using a color scale but I think this way you get more control
-	var red = "rgb(255,0,0)";
-	var yellow = "rgb(0,255,0)";
 	var colorH = d3.scale.linear().domain([0,height]).range([0,255]);
 	var colorW = d3.scale.linear().domain([0,width]).range([0,255]);
-	var colorB = d3.scale.linear().domain([red,yellow]).range([255,0]);
+	var colorB = d3.scale.linear().domain([0,(width+height)]).range([255,0]);
 	function toRGB (color){
 		color = color.replace("rgb(","");
 		color = color.replace(")","");
@@ -35,7 +33,7 @@ $( document ).ready(function() {
 			l = colors[1]-amount;	
 		}
 	
-		var newColor = "rgb("+k+","+l+","+"Math.floor(colorB(k+l))"+")";	return newColor;;
+		var newColor = "rgb("+k+","+l+","+"0"+")";	return newColor;;
 	}
 	function change(x,u,c,s,a){
 		try{
@@ -46,11 +44,10 @@ $( document ).ready(function() {
 		var max = 120;
 		var newcounter = 0;
 		var counter = 0;
-		var Slowdowneffect = 0;
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
 						change(x,y,newcounter++,'+',2);
-				}, counter++*60-Slowdowneffect++*10);
+				}, counter++*60);
 		}
 	
 		newcounter = 0;
@@ -97,7 +94,7 @@ $( document ).ready(function() {
 		for (var k = 0; k < height; k = k + squarerectangles.height){
 			row.push(d3.select(".canvas").append("circle")
 				.attr("fill",function(){
-					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.floor(colorB(Math.floor(colorW(i))+Math.floor(colorH(k))))+")";
+					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+",0"+")";
 				})
 				.attr("cx",i)
 				.attr("cy",k)
