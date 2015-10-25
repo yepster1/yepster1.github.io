@@ -46,29 +46,7 @@ $( document ).ready(function() {
 		var counter = 0;
 		for(var i = 0; i < max; i++){
 			setTimeout(function(){
-					if(newcounter < (max-5)){
 						change(x,y,newcounter,'+',2);
-						currentCircle(x,y,newcounter-1,'+',2);
-						currentCircle(x,y,newcounter-2,'+',2);
-						currentCircle(x,y,newcounter-3,'+',2);
-						currentCircle(x,y,newcounter-4,'+',2);
-					}
-					if(newcounter >=5){
-						currentCircle(x,y,(newcounter-5),'-',2);
-					}
-					if(newcounter >=7){
-						currentCircle(x,y,(newcounter-7),'-',2);
-					}
-					if(newcounter >=9){
-							currentCircle(x,y,(newcounter-9),'-',2);
-					}
-					if(newcounter >=11){
-							currentCircle(x,y,(newcounter-11),'-',2);
-					}
-					if(newcounter >=13){
-							currentCircle(x,y,(newcounter-13),'-',2);
-					}
-					newcounter++;
 				}, counter++*60);
 		}
 	
