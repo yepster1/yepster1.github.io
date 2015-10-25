@@ -97,7 +97,7 @@ $( document ).ready(function() {
 		for (var k = 0; k < height; k = k + squarerectangles.height){
 			row.push(d3.select(".canvas").append("circle")
 				.attr("fill",function(){
-					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.floor(colorB(k+i))+")";
+					return "rgb("+Math.floor(colorW(i))+","+Math.floor(colorH(k))+","+Math.floor(colorB(Math.floor(colorW(i))+Math.floor(colorH(k))))+")";
 				})
 				.attr("cx",i)
 				.attr("cy",k)
