@@ -1,15 +1,22 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Main</title>
-		<script src="scripts/d3.js" charset="utf-8"></script>
-		<script src="scripts/jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="stylesheets/css.css">
-	</head>
-	<body>
-			<div class = "can">
-				<svg class = "canvas"></svg>
-			</div>
-			<script src="scripts/Starter.js"></script>
-			
-	</body>
+<head>
+ 	<!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+ 	<link href="css.css" rel="stylesheet">
+    <!-- <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet"> -->
+	<script src="d3.js" charset="utf-8"></script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Clear" 
+           onclick="updateData()" />
+</div>
+    <svg id="visualisation" width="1000" height="500"></svg>
+ 	<script src="visu.js" charset="utf-8"></script>
+
+</body>
 </html>
